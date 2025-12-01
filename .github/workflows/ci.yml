@@ -2,7 +2,7 @@ name: C CI Pipeline
 
 on:
   push:
-    branches: [ "main" ]  
+    branches: [ "main" ]   # যদি তোমার default branch master হয়, এখানে master লিখো
   pull_request:
     branches: [ "main" ]
 
@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4   
+      uses: actions/checkout@v4   # সর্বশেষ ভার্সন
 
     - name: Install dependencies
       run: sudo apt-get update && sudo apt-get install -y build-essential
@@ -28,7 +28,7 @@ jobs:
         EOF
 
     - name: Upload binary artifact
-      uses: actions/upload-artifact@v4   
+      uses: actions/upload-artifact@v4   # v3 এর জায়গায় v4
       with:
         name: hms-binary
         path: hms
